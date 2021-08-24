@@ -2,11 +2,14 @@
 # by Andronik Ordian
 
 def calc_fib(n)
-  return n if n <= 1
-  # slow
-  # fix me
-  calc_fib(n - 1) + calc_fib(n - 2)
+  hash = {1=>1,2=>1}
+  (3..n).each{|i|
+    hash[i]=hash[i-1]+hash[i-2]
+  }
+  return hash[n]
 end
+
+puts calc_fib(12)
 
 if __FILE__ == $0
   n = gets.to_i
